@@ -1,81 +1,48 @@
 # Worktree Status Command
 
-Display comprehensive status of all 5 worktrees and the parallel agent system.
-
-Shows current state, activity, and quick action suggestions.
+Shows the current status of all 5 worktrees including git status, branch info, and recent changes.
 
 ## Usage
 
 ```bash
-cd /Users/pedro.figueiredo/Documents/git/neon/agent
-./scripts/status-worktrees.sh
+cd /Users/pedro.figueiredo/Documents/git/neon/agent && ./scripts/worktree-status.sh
 ```
 
 ## Description
 
-This command provides a complete overview of your parallel development setup:
+This command provides a comprehensive overview of all parallel agent worktrees:
 
-### System Status
-- **Tmux session** - Whether `parallel-agents` is running
-- **Git worktrees** - List of active worktrees
-- **Quick actions** - Suggested next steps
+1. **Lists all active worktrees** with their branches and commit status
+2. **Shows git status** for each worktree (modified files, staged changes, etc.)
+3. **Displays recent commits** made by each agent
+4. **Shows tmux session status** if agents are currently running
+5. **Reports log file locations** and sizes
 
-### Per-Worktree Details
-For each agent (1-5):
-- **Location and branch** - Worktree path and git branch
-- **Working tree status** - Modified, added, deleted files
-- **Commit history** - Commits ahead of main branch
-- **Last activity** - Most recently modified file
-
-### Summary Statistics
-- **Active worktrees** - How many are set up (X/5)
-- **Worktrees with changes** - How many have modifications
-- **Total commits** - Commits across all agents
-
-## Example Output
+## Sample Output
 
 ```
-📊 Worktree Status Report
-=========================
+🔍 Worktree Status Report
+========================
 
-🖥️  Tmux Session:
-  ✅ Session 'parallel-agents' is running
-  📺 Attach with: tmux attach -t parallel-agents
-
-🌲 Git Worktrees:
-/path/to/agent                           706bb5b [igor/data_apps_template]
-/path/to/agent-worktrees/agent-1         abc1234 [experiment/agent-1]
-/path/to/agent-worktrees/agent-2         def5678 [experiment/agent-2]
+📁 Active Worktrees:
+/path/to/agent-worktrees/agent-1  abc1234 [experiment/agent-1] 
+/path/to/agent-worktrees/agent-2  abc1234 [experiment/agent-2] +2 -1
 ...
 
---- Agent 1 ---
-📍 Location: /path/to/agent-worktrees/agent-1
-🌿 Branch: experiment/agent-1
-🔄 Working tree changes:
-   M  src/api.py
-   A  src/models.py
-📝 Commits ahead of main: 2
-   Latest: feat: add REST API endpoints
-⏰ Last modified: api.py at Dec 12 10:30:00
+🔄 Git Status Summary:
+Agent 1: Clean working tree
+Agent 2: 3 modified files, 1 untracked
+Agent 3: 2 staged changes
+...
+
+💻 Tmux Sessions:
+parallel-agents: 5 windows (active)
+
+📊 Recent Activity:
+Agent 1: Last commit 2 hours ago
+Agent 2: Currently working...
 ```
 
-## Status Indicators
+## Prerequisites
 
-- ✅ **Active/Good** - Component is working properly
-- 🔄 **Active** - Has changes or activity
-- ⭕ **Inactive** - Not running or clean state
-- ❌ **Error** - Missing or broken component
-
-## Quick Actions
-
-The status report includes suggested next steps:
-- `@worktree-run "prompt"` - Run prompt on all agents
-- `@worktree-compare` - Compare agent results  
-- `@worktree-clean` - Clean up everything
-
-## Use Cases
-
-- **Health check** - Verify setup is working
-- **Progress tracking** - See which agents are active
-- **Decision making** - Determine next steps
-- **Troubleshooting** - Identify missing components
+- Worktrees must be created with `@worktree-init` first

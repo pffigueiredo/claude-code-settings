@@ -1,63 +1,58 @@
 # Worktree Compare Command
 
-Compare results and approaches across all 5 agent worktrees.
-
-Generates detailed analysis reports showing how each agent approached the same problem differently.
+Analyzes and compares the different approaches taken by each agent across all 5 worktrees.
 
 ## Usage
 
 ```bash
-cd /Users/pedro.figueiredo/Documents/git/neon/agent
-./scripts/compare-results.sh
+cd /Users/pedro.figueiredo/Documents/git/neon/agent && ./scripts/worktree-compare.sh
 ```
 
 ## Description
 
-This command analyzes each worktree and generates:
+This command performs intelligent comparison across all agent implementations:
 
-### Individual Agent Reports
-- **Git status** and changed files
-- **Commit history** with messages
-- **Detailed diffs** of all changes
-- **File tree** of new/modified files
+1. **File Differences**: Shows which files were modified/created by each agent
+2. **Code Analysis**: Highlights different approaches to the same problem
+3. **Performance Metrics**: Compares lines of code, complexity, patterns used
+4. **Best Practices**: Identifies which agents followed better coding practices
+5. **Merge Recommendations**: Suggests which changes to combine for optimal solution
 
-### Summary Report
-- **Overview** of changes per agent
-- **Common patterns** across agents
-- **Unique approaches** taken by each
-- **Recommendations** for next steps
+## Comparison Categories
 
-## Output Structure
+- **Architecture Decisions**: Framework choices, component structure
+- **Implementation Patterns**: Different ways of solving the same problem  
+- **Code Quality**: TypeScript usage, error handling, testing
+- **Performance**: Bundle size impact, runtime efficiency
+- **User Experience**: UI/UX differences, accessibility
+
+## Sample Output
 
 ```
-reports/comparison-YYYYMMDD-HHMMSS/
-├── summary-report.txt           # Main comparison summary
-├── agent-1-analysis.txt         # Detailed analysis for agent 1
-├── agent-2-analysis.txt         # Detailed analysis for agent 2
-├── agent-3-analysis.txt         # Detailed analysis for agent 3
-├── agent-4-analysis.txt         # Detailed analysis for agent 4
-└── agent-5-analysis.txt         # Detailed analysis for agent 5
-```
+🔀 Agent Comparison Report
+=========================
 
-## What It Analyzes
+📊 Implementation Summary:
+Agent 1: Used hooks-based approach, 3 new components
+Agent 2: Class components, more defensive error handling
+Agent 3: Custom hooks + Context API, best TypeScript coverage
+Agent 4: Minimal changes, focused on performance
+Agent 5: Most comprehensive, added testing
 
-- **Code changes** - Files modified by each agent
-- **Implementation patterns** - Common approaches vs unique solutions
-- **Commit strategies** - How each agent organized their work
-- **File organization** - Where each agent placed new code
-- **Problem-solving approaches** - Different ways to tackle the same task
+🏆 Best Practices Winners:
+- TypeScript: Agent 3 (100% coverage)
+- Performance: Agent 4 (smallest bundle impact) 
+- Testing: Agent 5 (full test suite)
+- Code Style: Agent 1 (most readable)
 
-## Example Output
-
-The summary report might show:
-```
-Agent 1: 5 changed files, 3 commits - REST API with Express
-Agent 2: 8 changed files, 1 commit - GraphQL implementation  
-Agent 3: 3 changed files, 5 commits - Minimal FastAPI solution
-Agent 4: 12 changed files, 2 commits - Full-stack with React
-Agent 5: 4 changed files, 4 commits - Microservices architecture
+💡 Merge Recommendations:
+- Take TypeScript interfaces from Agent 3
+- Use performance optimizations from Agent 4
+- Adopt testing strategy from Agent 5
+- Keep component structure from Agent 1
 ```
 
 ## Prerequisites
 
-Run after `@worktree-run` has been executed and agents have made changes.
+- Agents must have completed their work
+- Run `@worktree-status` first to ensure all agents are finished

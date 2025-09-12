@@ -7,8 +7,7 @@ Each agent works in its own isolated worktree, allowing you to compare different
 ## Usage
 
 ```bash
-cd /Users/pedro.figueiredo/Documents/git/neon/agent
-./scripts/run-parallel-agents.sh "$ARGUMENTS"
+cd /Users/pedro.figueiredo/Documents/git/neon/agent && ./scripts/run-parallel-agents.sh "your prompt here"
 ```
 
 ## Description

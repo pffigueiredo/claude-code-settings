@@ -8,3 +8,5 @@
 !agents/**
 !statusline-command.sh
 !.gitignore
+!scripts/
+!scripts/**
