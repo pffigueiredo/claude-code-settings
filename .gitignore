@@ -1,0 +1,10 @@
+# Ignore everything by default
+*
+
+# But include these specific files and directories
+!commands/
+!commands/**
+!agents/
+!agents/**
+!statusline-command.sh
+!.gitignore

@@ -1,8 +1,0 @@
-[
-  {
-    "content": "Fix inconsistent error handling in checkIfScopeAlreadyExists function",
-    "status": "completed",
-    "priority": "high",
-    "id": "1"
-  }
-]
