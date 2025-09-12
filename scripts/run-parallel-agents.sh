@@ -63,9 +63,15 @@ setup_agent_pane() {
     
     # Send commands to the pane
     tmux send-keys -t "$SESSION_NAME:0.$pane_id" "echo '🤖 Agent $agent_num starting...'" Enter
-    tmux send-keys -t "$SESSION_NAME:0.$pane_id" "echo 'Working directory: $(pwd)'" Enter
+    tmux send-keys -t "$SESSION_NAME:0.$pane_id" "cd '$worktree_dir'" Enter
+    tmux send-keys -t "$SESSION_NAME:0.$pane_id" "echo 'Working directory: '\$(pwd)" Enter
+    tmux send-keys -t "$SESSION_NAME:0.$pane_id" "echo 'Git branch: '\$(git branch --show-current)" Enter
     tmux send-keys -t "$SESSION_NAME:0.$pane_id" "echo 'Prompt: $PROMPT'" Enter
     tmux send-keys -t "$SESSION_NAME:0.$pane_id" "echo '---'" Enter
+    
+    # Add verification that we're in the correct worktree
+    tmux send-keys -t "$SESSION_NAME:0.$pane_id" "if [ \"\$(pwd)\" != \"$worktree_dir\" ]; then echo '❌ ERROR: Wrong directory!'; exit 1; fi" Enter
+    tmux send-keys -t "$SESSION_NAME:0.$pane_id" "if [ \"\$(git branch --show-current)\" != \"experiment/agent-$agent_num\" ]; then echo '❌ ERROR: Wrong branch!'; exit 1; fi" Enter
     
     # Start Claude with the prompt and log output
     tmux send-keys -t "$SESSION_NAME:0.$pane_id" "echo '🚀 Starting Claude Agent $agent_num...'" Enter
