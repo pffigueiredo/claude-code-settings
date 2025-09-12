@@ -1,0 +1,50 @@
+[
+  {
+    "content": "Switch from use-react-screenshot back to html2canvas",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Add debug logging to see what's happening",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Fix screenshot capture issue with new implementation",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Test screenshot appears in preview",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Replace split screen with GitHub-style preview tabs",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  },
+  {
+    "content": "Fix tab layout to prevent content jumping when switching tabs",
+    "status": "completed",
+    "priority": "high",
+    "id": "6"
+  },
+  {
+    "content": "Improve screenshot preview design - remove nested boxes",
+    "status": "completed",
+    "priority": "medium",
+    "id": "7"
+  },
+  {
+    "content": "Add screenshot as markdown image in description textarea",
+    "status": "completed",
+    "priority": "high",
+    "id": "8"
+  }
+]

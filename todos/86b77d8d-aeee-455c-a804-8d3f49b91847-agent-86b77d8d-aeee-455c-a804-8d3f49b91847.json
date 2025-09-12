@@ -1,0 +1,146 @@
+[
+  {
+    "content": "Add message limit information to user data in admin users endpoint",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Add message limit column to users list in admin dashboard",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Replace asterisk with Settings icon for custom message limits",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Improve message limit display and add edit functionality",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Add tooltip to Message Limit column header showing default limit",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Add tooltip icon to header and make limit values bold instead of header",
+    "status": "completed",
+    "priority": "medium",
+    "id": "6"
+  },
+  {
+    "content": "Add highlighted variant to Badge component for custom limits",
+    "status": "completed",
+    "priority": "medium",
+    "id": "7"
+  },
+  {
+    "content": "Implement UX improvements for edit button placement and accessibility",
+    "status": "completed",
+    "priority": "medium",
+    "id": "8"
+  },
+  {
+    "content": "Replace custom edit button with React Admin InPlaceEditor",
+    "status": "completed",
+    "priority": "high",
+    "id": "9"
+  },
+  {
+    "content": "Create custom InPlaceEditor component using shadcn/ui components",
+    "status": "completed",
+    "priority": "high",
+    "id": "10"
+  },
+  {
+    "content": "Rewrite InPlaceEditor to match original React Admin implementation",
+    "status": "completed",
+    "priority": "high",
+    "id": "11"
+  },
+  {
+    "content": "Implement subtle inline editing UI improvements",
+    "status": "completed",
+    "priority": "high",
+    "id": "12"
+  },
+  {
+    "content": "Redesign InlineInput with Linear-style clear visual feedback",
+    "status": "completed",
+    "priority": "high",
+    "id": "13"
+  },
+  {
+    "content": "Add proper edit mode indication with borders and backgrounds",
+    "status": "completed",
+    "priority": "high",
+    "id": "14"
+  },
+  {
+    "content": "Implement smooth Linear-style micro-animations",
+    "status": "completed",
+    "priority": "medium",
+    "id": "15"
+  },
+  {
+    "content": "Add auto-focus functionality to input when entering edit mode",
+    "status": "completed",
+    "priority": "high",
+    "id": "16"
+  },
+  {
+    "content": "Simplify input structure by removing nested InlineInput component",
+    "status": "completed",
+    "priority": "high",
+    "id": "17"
+  },
+  {
+    "content": "Make edit mode borders more subtle and barely visible",
+    "status": "completed",
+    "priority": "medium",
+    "id": "18"
+  },
+  {
+    "content": "Refactor auto-focus from useEffect to reducer pattern",
+    "status": "completed",
+    "priority": "medium",
+    "id": "19"
+  },
+  {
+    "content": "Transform reading state to clear box appearance with visible borders",
+    "status": "completed",
+    "priority": "high",
+    "id": "20"
+  },
+  {
+    "content": "Redesign editing state with proper input field styling",
+    "status": "completed",
+    "priority": "high",
+    "id": "21"
+  },
+  {
+    "content": "Update action buttons with Check icon and loading spinner",
+    "status": "completed",
+    "priority": "medium",
+    "id": "22"
+  },
+  {
+    "content": "Add consistent spacing and visual hierarchy",
+    "status": "completed",
+    "priority": "medium",
+    "id": "23"
+  },
+  {
+    "content": "Reduce sizing to make the inline editor more subtle",
+    "status": "completed",
+    "priority": "medium",
+    "id": "24"
+  }
+]

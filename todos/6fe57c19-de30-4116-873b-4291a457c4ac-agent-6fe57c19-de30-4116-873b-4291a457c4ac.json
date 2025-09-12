@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Examine existing e2e tests to understand current structure and patterns",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update chat.spec.ts test to include tech stack selection",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Update landing tests if they need tech stack awareness",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Add new test for tech stack functionality specifically",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Run e2e tests to verify changes work correctly",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  }
+]

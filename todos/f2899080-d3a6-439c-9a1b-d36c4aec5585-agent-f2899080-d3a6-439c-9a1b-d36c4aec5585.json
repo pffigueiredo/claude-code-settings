@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Create deployment status constants in packages/core/agent-message.ts",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update core types and Zod schema to use constants",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Refactor use-send-message.ts to use centralized mapping",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Update AppUrls component to use constants",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

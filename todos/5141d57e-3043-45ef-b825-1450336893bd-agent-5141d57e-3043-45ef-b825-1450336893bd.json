@@ -1,0 +1,14 @@
+[
+  {
+    "content": "Examine existing Sentry setup in the platform app",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Configure environment and other necessary Sentry options based on docs",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  }
+]

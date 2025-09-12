@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Fix process management and replace PID tracking with simpler approach",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Redirect error messages to stderr in JSON mode",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Fix tee redirection to properly handle JSON output",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Simplify parallel download mechanism",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Add JSON validation and fix empty folder handling",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  }
+]

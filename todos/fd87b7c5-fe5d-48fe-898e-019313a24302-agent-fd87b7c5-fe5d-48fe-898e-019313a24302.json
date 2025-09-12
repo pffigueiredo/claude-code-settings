@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Change border color to red for runtime error messages",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Render error message text in bold red instead of MarkdownBlock",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Test the styling changes",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  }
+]

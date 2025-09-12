@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Search for console.log statements that might print entire messages",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Check message.ts file for logging statements",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Search for other logging methods (logger.info, etc.) printing messages",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Check error handling code that might dump message objects",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

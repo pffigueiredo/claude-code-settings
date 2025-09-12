@@ -1,0 +1,32 @@
+[
+  {
+    "content": "🧪 Test Engineer Analysis - Review E2E testing infrastructure changes",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "🔧 DevOps Engineer Analysis - Review CI/CD pipeline changes",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "🛡️ Security Engineer Analysis - Review security implications",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "🏗️ Software Architect Analysis - Review architectural decisions",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "⚡ Performance Engineer Analysis - Review performance implications",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Analyze changes from Backend API Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Analyze changes from CLI/UX Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Analyze changes from TypeScript/Type Safety Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Analyze changes from Software Architecture Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Analyze changes from Testing/Quality Assurance Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  }
+]

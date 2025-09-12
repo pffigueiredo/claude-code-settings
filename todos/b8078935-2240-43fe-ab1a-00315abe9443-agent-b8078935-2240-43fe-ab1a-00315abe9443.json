@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Revert users.ts to original simple implementation",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Revert pagination.ts to original simple version",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Clean up any unused imports or exports",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Run type check and lint to ensure everything works",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Examine current state of admin components to understand what i18n was removed",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Restore i18n imports (Translate, useTranslate) in admin components",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Replace hardcoded strings with Translate components in admin components",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Replace hardcoded strings with translate() calls in admin components",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Process apps components directory for i18n restoration",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  },
+  {
+    "content": "Verify all changes and ensure proper i18n patterns are restored",
+    "status": "completed",
+    "priority": "medium",
+    "id": "6"
+  }
+]

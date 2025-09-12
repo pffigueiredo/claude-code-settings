@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Compare branch changes against main to understand scope",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Review code with Security Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Review code with Performance Engineer perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Review code with Code Quality Advocate perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Review code with System Reliability Engineer perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  },
+  {
+    "content": "Review code with Business Logic Analyst perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "6"
+  }
+]

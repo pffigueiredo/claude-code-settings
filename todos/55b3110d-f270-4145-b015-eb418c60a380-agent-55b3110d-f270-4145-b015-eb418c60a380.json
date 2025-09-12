@@ -1,0 +1,14 @@
+[
+  {
+    "content": "Fix missing export specifiers in package.json to make build work",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Make exports more dynamic to avoid specifying each one individually",
+    "status": "completed",
+    "priority": "medium",
+    "id": "2"
+  }
+]

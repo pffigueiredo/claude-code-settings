@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Update type names in logs-types.ts from 'Log' to 'Snapshot' terminology",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update function names in logs-hooks.ts to use 'Snapshot' terminology",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Update comments and terminology in logs-utils.ts",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Update API references and comments in logs-index.ts",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Update any remaining 'logs' references to 'snapshots' in UI text",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Update import statements to use new type names",
+    "status": "completed",
+    "priority": "high",
+    "id": "6"
+  }
+]

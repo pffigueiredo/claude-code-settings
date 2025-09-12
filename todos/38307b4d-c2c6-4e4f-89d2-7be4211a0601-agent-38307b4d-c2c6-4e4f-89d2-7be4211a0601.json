@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Start the development server with bun dev",
+    "status": "completed",
+    "activeForm": "Starting development server"
+  },
+  {
+    "content": "Navigate to the web application using Playwright",
+    "status": "completed",
+    "activeForm": "Opening web application in browser"
+  },
+  {
+    "content": "Take screenshot of the application",
+    "status": "in_progress",
+    "activeForm": "Taking screenshot"
+  }
+]

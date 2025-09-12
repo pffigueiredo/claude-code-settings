@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Get branch diff against main",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Analyze changes through Security Expert lens",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Analyze changes through Performance Expert lens",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Analyze changes through Code Quality Expert lens",
+    "status": "completed",
+    "id": "4"
+  },
+  {
+    "content": "Analyze changes through Business Logic Expert lens",
+    "status": "completed",
+    "id": "5"
+  },
+  {
+    "content": "Analyze changes through UX/Frontend Expert lens",
+    "status": "completed",
+    "id": "6"
+  },
+  {
+    "content": "Compile actionable recommendations with file locations",
+    "status": "completed",
+    "id": "7"
+  }
+]

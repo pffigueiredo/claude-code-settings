@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Read current apps list component to understand structure",
+    "status": "completed",
+    "activeForm": "Reading current apps list component"
+  },
+  {
+    "content": "Read data provider to understand current delete implementation",
+    "status": "completed",
+    "activeForm": "Reading data provider"
+  },
+  {
+    "content": "Add delete button to app list actions column",
+    "status": "completed",
+    "activeForm": "Adding delete button to app list actions"
+  },
+  {
+    "content": "Update data provider to use admin delete endpoint",
+    "status": "completed",
+    "activeForm": "Updating data provider for admin delete endpoint"
+  },
+  {
+    "content": "Verify TypeScript compilation passes",
+    "status": "completed",
+    "activeForm": "Verifying TypeScript compilation"
+  },
+  {
+    "content": "Verify linting passes",
+    "status": "completed",
+    "activeForm": "Verifying linting"
+  },
+  {
+    "content": "Test delete button functionality manually",
+    "status": "pending",
+    "activeForm": "Testing delete button functionality"
+  },
+  {
+    "content": "Update plan checkboxes to reflect completed work",
+    "status": "completed",
+    "activeForm": "Updating plan checkboxes"
+  }
+]

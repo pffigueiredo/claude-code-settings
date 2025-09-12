@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Review security implications of Databricks API key storage and handling",
+    "status": "completed",
+    "priority": "high",
+    "id": "security-review"
+  },
+  {
+    "content": "Analyze database schema changes and query performance impact",
+    "status": "completed",
+    "priority": "medium",
+    "id": "performance-review"
+  },
+  {
+    "content": "Identify potential bugs and edge cases in form validation and error handling",
+    "status": "completed",
+    "priority": "high",
+    "id": "qa-review"
+  },
+  {
+    "content": "Evaluate user experience flow and accessibility concerns",
+    "status": "completed",
+    "priority": "medium",
+    "id": "ux-review"
+  },
+  {
+    "content": "Review code architecture, patterns, and maintainability",
+    "status": "completed",
+    "priority": "medium",
+    "id": "architecture-review"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Restore i18n dependencies to package.json",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Recreate i18n configuration files",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Restore Translate and useTranslate imports in components",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Replace hardcoded strings back to i18n keys",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Test admin app after restoration",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  }
+]

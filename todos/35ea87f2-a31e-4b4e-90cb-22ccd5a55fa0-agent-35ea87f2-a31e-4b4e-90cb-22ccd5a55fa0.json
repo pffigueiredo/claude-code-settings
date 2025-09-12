@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create bash scripts in /scripts/ directory",
+    "status": "completed",
+    "activeForm": "Creating bash scripts in /scripts/ directory"
+  },
+  {
+    "content": "Create worktree-init.md command",
+    "status": "in_progress",
+    "activeForm": "Creating worktree-init.md command"
+  },
+  {
+    "content": "Create worktree-run.md command",
+    "status": "pending",
+    "activeForm": "Creating worktree-run.md command"
+  },
+  {
+    "content": "Create worktree-compare.md command",
+    "status": "pending",
+    "activeForm": "Creating worktree-compare.md command"
+  },
+  {
+    "content": "Create worktree-clean.md command",
+    "status": "pending",
+    "activeForm": "Creating worktree-clean.md command"
+  },
+  {
+    "content": "Create worktree-status.md command",
+    "status": "pending",
+    "activeForm": "Creating worktree-status.md command"
+  }
+]

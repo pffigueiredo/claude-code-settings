@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Add repositoryUrl to the database query in delete-app.ts",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Complete the cleanupGithubResources function implementation",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Integrate GitHub cleanup call into main deleteApp function",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Test the implementation and verify error handling",
+    "status": "completed",
+    "id": "4"
+  }
+]

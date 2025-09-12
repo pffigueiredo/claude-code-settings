@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Get branch diff between feat-add-tech-stack-web and feat-add-tech-stack-be",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Analyze changes through 5 expert personalities",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Provide actionable recommendations with file/line references",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  }
+]

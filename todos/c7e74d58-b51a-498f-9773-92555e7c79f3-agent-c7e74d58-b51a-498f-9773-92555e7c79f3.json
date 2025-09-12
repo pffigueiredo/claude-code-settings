@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Add essential meta tags (description, Open Graph, theme-color)",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Add Content Security Policy (CSP) meta tag",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Improve page title to be more descriptive",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Add performance hints (preconnect)",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Update web-app-build-review.md with index.html improvements",
+    "status": "completed",
+    "priority": "low",
+    "id": "5"
+  }
+]

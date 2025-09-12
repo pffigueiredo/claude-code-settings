@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Check if development server is running",
+    "status": "completed",
+    "activeForm": "Checking if development server is running"
+  },
+  {
+    "content": "Navigate to the web application using Playwright",
+    "status": "completed",
+    "activeForm": "Navigating to the web application using Playwright"
+  },
+  {
+    "content": "Take screenshot of the application",
+    "status": "in_progress",
+    "activeForm": "Taking screenshot of the application"
+  }
+]

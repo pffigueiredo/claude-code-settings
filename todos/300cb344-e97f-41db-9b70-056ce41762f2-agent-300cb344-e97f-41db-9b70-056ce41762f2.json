@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create comprehensive TODOS.md with architecture and implementation steps",
+    "status": "completed",
+    "activeForm": "Creating comprehensive TODOS.md with architecture and implementation steps"
+  },
+  {
+    "content": "Set up Neon PostgreSQL database and get connection string",
+    "status": "in_progress",
+    "activeForm": "Setting up Neon PostgreSQL database and getting connection string"
+  },
+  {
+    "content": "Install and configure ZenStack with schema definition",
+    "status": "pending",
+    "activeForm": "Installing and configuring ZenStack with schema definition"
+  },
+  {
+    "content": "Initialize Vite React project in frontend directory",
+    "status": "pending",
+    "activeForm": "Initializing Vite React project in frontend directory"
+  },
+  {
+    "content": "Create Cloudflare Workers project for backend and cron jobs",
+    "status": "pending",
+    "activeForm": "Creating Cloudflare Workers project for backend and cron jobs"
+  },
+  {
+    "content": "Configure environment variables and deployment setup",
+    "status": "pending",
+    "activeForm": "Configuring environment variables and deployment setup"
+  }
+]

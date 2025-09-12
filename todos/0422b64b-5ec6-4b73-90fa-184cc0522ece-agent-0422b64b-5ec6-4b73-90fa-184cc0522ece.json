@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Investigate SSE error in the codebase",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Find where SSE is implemented and identify the error source",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Provide solution or debugging steps",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "content": "Fix debug copy issue by creating target directory before copying",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Reorder operations to ensure workspace import happens after all files are created",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  }
+]

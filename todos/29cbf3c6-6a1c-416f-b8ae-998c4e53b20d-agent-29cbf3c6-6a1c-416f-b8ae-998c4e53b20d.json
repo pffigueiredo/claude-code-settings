@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Analyze diff through Database/Schema Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Analyze diff through Backend/API Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Type Safety Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Analyze diff through Architecture/Design Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Analyze diff through Testing/Quality Expert perspective",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  }
+]

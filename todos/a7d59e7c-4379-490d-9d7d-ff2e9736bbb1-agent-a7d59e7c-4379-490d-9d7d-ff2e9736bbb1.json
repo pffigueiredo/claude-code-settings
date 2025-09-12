@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Create error detection utility function",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update logs-section.tsx with runtime error indicators",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Update json-viewer-modal.tsx with error highlighting",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Test the error detection and styling",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

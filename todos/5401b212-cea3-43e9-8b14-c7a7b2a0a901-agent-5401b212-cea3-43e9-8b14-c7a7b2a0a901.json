@@ -1,0 +1,44 @@
+[
+  {
+    "content": "Redesign stack selector as compact dropdown picker on the left side of input",
+    "status": "completed",
+    "priority": "high",
+    "id": "15"
+  },
+  {
+    "content": "Remove the previous stack selector from above the input",
+    "status": "completed",
+    "priority": "high",
+    "id": "16"
+  },
+  {
+    "content": "Update ChatInput component to include inline stack picker",
+    "status": "completed",
+    "priority": "high",
+    "id": "17"
+  },
+  {
+    "content": "Ensure dropdown shows only first 3 stack options",
+    "status": "completed",
+    "priority": "high",
+    "id": "18"
+  },
+  {
+    "content": "Update stack badge to use new compact options",
+    "status": "completed",
+    "priority": "medium",
+    "id": "19"
+  },
+  {
+    "content": "Update loading message to use compact stack options",
+    "status": "completed",
+    "priority": "medium",
+    "id": "20"
+  },
+  {
+    "content": "Test linting and type checking for new design",
+    "status": "completed",
+    "priority": "high",
+    "id": "21"
+  }
+]

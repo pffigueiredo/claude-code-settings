@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Find the deployment-status/:id endpoint in the backend",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Analyze getKoyebDeploymentEndpoint function and its usage",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Trace where non-UUID values are passed to apps.id",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Identify the root cause and propose solution",
+    "status": "completed",
+    "id": "4"
+  }
+]

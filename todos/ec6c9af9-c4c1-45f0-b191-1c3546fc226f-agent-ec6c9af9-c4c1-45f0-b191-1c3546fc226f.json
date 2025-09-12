@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Update StatusCard styling to match the dark theme design",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Add vertical colored bar indicator to StatusCard",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Update color scheme to use gray-900/800 backgrounds with colored borders",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  }
+]

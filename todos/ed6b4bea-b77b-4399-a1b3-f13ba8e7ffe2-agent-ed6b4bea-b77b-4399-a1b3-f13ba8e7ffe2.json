@@ -1,0 +1,27 @@
+[
+  {
+    "content": "🔍 Backend Engineer: Analyze message.ts SSE error handling changes",
+    "status": "completed",
+    "id": "review-backend"
+  },
+  {
+    "content": "🎯 Frontend Engineer: Review SSE implementation refactor in useSSE.ts",
+    "status": "completed",
+    "id": "review-frontend"
+  },
+  {
+    "content": "🛡️ Security Expert: Examine error exposure and dependency changes",
+    "status": "completed",
+    "id": "review-security"
+  },
+  {
+    "content": "🏗️ Software Architect: Assess dependency management and coupling",
+    "status": "completed",
+    "id": "review-architecture"
+  },
+  {
+    "content": "🎨 Code Quality Engineer: Check maintainability and best practices",
+    "status": "completed",
+    "id": "review-quality"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Security Expert Review - Analyze AWS credentials and environment variables",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "DevOps Expert Review - Evaluate CI/CD pipeline changes and infrastructure",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Frontend Expert Review - Assess React/TypeScript code quality and patterns",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Code Quality Expert Review - Examine linting, formatting, and maintainability",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Performance Expert Review - Analyze performance implications and optimizations",
+    "status": "completed",
+    "priority": "low",
+    "id": "5"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "content": "Replace input ref approach with FormData.get() for check button",
+    "status": "completed",
+    "priority": "medium",
+    "id": "1"
+  }
+]

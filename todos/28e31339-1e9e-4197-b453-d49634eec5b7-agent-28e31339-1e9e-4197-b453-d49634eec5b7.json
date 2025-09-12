@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Create S3 utility functions for log operations (get-log-folders.ts, get-log-files.ts, get-log-presigned-urls.ts)",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Implement backend API endpoints for admin log access (/admin/apps/:id/logs endpoints)",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Create admin UI components for log viewing (LogsSection, LogFolderList, LogFileViewer)",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Integrate logs section into existing app details page",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Add proper error handling and loading states",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Test the complete S3 logs integration end-to-end",
+    "status": "completed",
+    "priority": "high",
+    "id": "6"
+  }
+]

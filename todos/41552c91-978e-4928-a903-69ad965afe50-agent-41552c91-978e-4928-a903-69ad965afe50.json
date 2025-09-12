@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Debug the router integration - test show route navigation",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Check if React Admin is receiving proper route parameters",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Add debug logging to understand routing flow",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Test the show component with different approaches",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

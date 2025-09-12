@@ -1,0 +1,7 @@
+[
+  {
+    "content": "Add click handler to DialogOverlay to prevent event bubbling",
+    "status": "completed",
+    "id": "1"
+  }
+]

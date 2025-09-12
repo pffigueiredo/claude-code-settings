@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Add loading state during iframe reload in desktop-chat.tsx",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Improve accessibility with better ARIA labels in desktop-chat.tsx",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Add error handling for iframe load failures in desktop-chat.tsx",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Apply same enhancements to mobile-chat.tsx",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  }
+]

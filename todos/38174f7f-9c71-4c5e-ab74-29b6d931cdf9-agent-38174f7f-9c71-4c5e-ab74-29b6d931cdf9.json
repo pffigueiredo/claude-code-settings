@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Install @tailwindcss/postcss package",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update PostCSS configuration to use @tailwindcss/postcss",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Add Tailwind CSS imports to src/global.css",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Update tailwind.config.ts content paths for Vite",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

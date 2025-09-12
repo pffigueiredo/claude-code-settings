@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Check Vite configuration in admin app",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update Vite config to use ES modules",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Test the fix by running admin dev",
+    "status": "in_progress",
+    "priority": "medium",
+    "id": "3"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "content": "Analyze current Databricks deployment bottlenecks",
+    "status": "completed",
+    "activeForm": "Analyzing deployment bottlenecks"
+  },
+  {
+    "content": "Design async Databricks deployment architecture",
+    "status": "completed",
+    "activeForm": "Designing async architecture"
+  },
+  {
+    "content": "Phase 1: Create background job infrastructure",
+    "status": "pending",
+    "activeForm": "Creating background job infrastructure"
+  },
+  {
+    "content": "Phase 1.1: Create job manager system",
+    "status": "pending",
+    "activeForm": "Creating job manager"
+  },
+  {
+    "content": "Phase 1.2: Create async deployment worker",
+    "status": "pending",
+    "activeForm": "Creating deployment worker"
+  },
+  {
+    "content": "Phase 2: Update deployment endpoints",
+    "status": "pending",
+    "activeForm": "Updating deployment endpoints"
+  },
+  {
+    "content": "Phase 2.1: Modify deployment endpoint for immediate return",
+    "status": "pending",
+    "activeForm": "Modifying deployment endpoint"
+  },
+  {
+    "content": "Phase 2.2: Create job status endpoint",
+    "status": "pending",
+    "activeForm": "Creating job status endpoint"
+  },
+  {
+    "content": "Phase 3: Enhanced progress updates",
+    "status": "pending",
+    "activeForm": "Adding enhanced progress updates"
+  },
+  {
+    "content": "Phase 4: Testing and validation",
+    "status": "pending",
+    "activeForm": "Testing async deployment"
+  }
+]

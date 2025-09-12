@@ -1,0 +1,14 @@
+[
+  {
+    "content": "Examine the current CLI app structure",
+    "status": "completed"
+  },
+  {
+    "content": "Create a prominent deprecation announcement",
+    "status": "completed"
+  },
+  {
+    "content": "Test the announcement display",
+    "status": "in_progress"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Add logic to check if user has any remaining active deployments",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Create deleteKoyebOrganization function in koyeb.ts",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Update cleanupKoyebResources to conditionally delete organization",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Test the complete organization cleanup flow",
+    "status": "completed",
+    "id": "4"
+  }
+]

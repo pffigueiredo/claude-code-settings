@@ -1,0 +1,14 @@
+[
+  {
+    "content": "Update apps/backend/src/instrument.ts to use isDev utility instead of manual NODE_ENV checks",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update apps/backend/src/app.ts to use isDev utility instead of manual NODE_ENV checks",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  }
+]

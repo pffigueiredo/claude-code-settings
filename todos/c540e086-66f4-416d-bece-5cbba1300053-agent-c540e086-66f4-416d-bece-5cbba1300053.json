@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Examine existing CLAUDE.md file",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Analyze package.json for build/test commands",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Review project structure and architecture",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Check for existing rules files (.cursorrules, copilot instructions, etc.)",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Review README.md for important information",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Update or create CLAUDE.md file",
+    "status": "in_progress",
+    "priority": "high",
+    "id": "6"
+  }
+]

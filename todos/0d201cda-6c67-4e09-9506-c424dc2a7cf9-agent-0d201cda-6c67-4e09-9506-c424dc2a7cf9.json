@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Refactor instrument.ts to export initializeSentry function",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update app.ts to call initializeSentry() instead of import side effect",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Make initializeSentry idempotent and return success status",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  }
+]
