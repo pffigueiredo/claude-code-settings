@@ -5,7 +5,7 @@ Analyzes and compares the different approaches taken by each agent across all 5 
 ## Usage
 
 ```bash
-cd /Users/pedro.figueiredo/Documents/git/neon/agent && ./scripts/worktree-compare.sh
+~/.claude/scripts/worktree-compare.sh
 ```
 
 ## Description

@@ -5,7 +5,7 @@ Shows the current status of all 5 worktrees including git status, branch info, a
 ## Usage
 
 ```bash
-cd /Users/pedro.figueiredo/Documents/git/neon/agent && ./scripts/worktree-status.sh
+~/.claude/scripts/worktree-status.sh
 ```
 
 ## Description

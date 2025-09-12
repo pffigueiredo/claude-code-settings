@@ -12,7 +12,7 @@ Creates 5 independent worktrees, each with its own branch based on your **curren
 ## Usage
 
 ```bash
-cd /Users/pedro.figueiredo/Documents/git/neon/agent && ./scripts/setup-worktrees.sh
+~/.claude/scripts/setup-worktrees.sh
 ```
 
 ## Description
