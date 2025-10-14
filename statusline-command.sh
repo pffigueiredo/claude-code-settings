@@ -43,13 +43,40 @@ if [ -d "$cwd/.git" ] || git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1; the
     fi
 fi
 
-# Create the status line with model, tokens, directory, and git info
-# Colors: green arrow, cyan directory, blue git info, magenta model, yellow tokens
-# Removed dim (\033[2m) for better visibility, added separators for better organization
+# Check documentation sync status
+doc_sync_info=""
+if [ -f "$cwd/CLAUDE.md" ]; then
+    doc_commit=$(git -C "$cwd" log -1 --format=%H -- CLAUDE.md 2>/dev/null)
+
+    if [ -n "$doc_commit" ]; then
+        # Count files changed since CLAUDE.md was last committed
+        committed=$(git -C "$cwd" diff --name-only "$doc_commit..HEAD" 2>/dev/null | wc -l | tr -d ' ')
+        uncommitted=$(git -C "$cwd" diff HEAD --name-only 2>/dev/null | wc -l | tr -d ' ')
+        untracked=$(git -C "$cwd" ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' ')
+        total=$((committed + uncommitted + untracked))
+
+        # Determine drift level
+        if [ "$total" -ge 8 ]; then
+            doc_sync_info="📕 docs:high($total)"
+        elif [ "$total" -ge 4 ]; then
+            doc_sync_info="📔 docs:mod($total)"
+        elif [ "$total" -ge 1 ]; then
+            doc_sync_info="📙 docs:low($total)"
+        else
+            doc_sync_info="📗 docs:ok"
+        fi
+    fi
+fi
+
+# Create the status line with model, tokens, directory, git info, and doc sync
 printf "\033[1;32m➜\033[0m \033[36m%s\033[0m" "$current_dir"
 
 if [ -n "$git_info" ]; then
     printf " \033[90m|\033[0m \033[1;34m%s\033[0m" "$git_info"
+fi
+
+if [ -n "$doc_sync_info" ]; then
+    printf " \033[90m|\033[0m %s" "$doc_sync_info"
 fi
 
 printf " \033[90m|\033[0m \033[35m%s\033[0m" "$model_display_name"
