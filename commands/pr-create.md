@@ -8,6 +8,10 @@ Title:
 - The title needs to be a short description of the changes.
 - The title needs to be a single line.
 
+Body:
+
+- The body needs to be a summarized description of the branch branches against its base branch (usually main).
+
 ## Usage
 ```bash
 gh pr create --title "{{TITLE}}" --body "$(cat <<'EOF'
