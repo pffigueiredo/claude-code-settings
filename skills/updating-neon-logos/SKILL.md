@@ -28,6 +28,18 @@ To update logos in the current repository:
 | Logomark (Light BG, Color) | Favicons, small spaces, app icons | `https://neon.com/brand/neon-logomark-light-color.svg` |
 | Full Package | All variants and formats | `https://neon.com/brand/neon-brand-assets.zip` |
 
+### Favicon Assets (from neon.com/favicon/)
+
+For favicons, download directly from neon.com rather than converting from brand assets:
+
+| Asset | URL | Size |
+|-------|-----|------|
+| SVG Favicon (primary) | `https://neon.com/favicon/favicon.svg` | Vector |
+| ICO Favicon (fallback) | `https://neon.com/favicon/favicon.ico` | 100x100 |
+| Apple Touch Icon | `https://neon.com/favicon/apple-touch-icon.png` | 180x180 |
+
+**Note:** Always prefer downloading these production-ready assets over converting from brand SVGs.
+
 ### Brand Guidelines
 
 - Default to full-color complete logo
@@ -110,15 +122,22 @@ For approved changes:
    curl -o [target-path] "https://neon.com/brand/[asset-name]"
    ```
 
-2. **For format conversions** (SVG to PNG/ICO):
-   - Use ImageMagick if available: `convert input.svg -resize 32x32 favicon.ico`
-   - Or recommend user generates from SVG
+2. **For favicons**, prefer downloading from neon.com/favicon/:
+   ```bash
+   curl -o public/favicon.svg "https://neon.com/favicon/favicon.svg"
+   curl -o public/favicon.ico "https://neon.com/favicon/favicon.ico"
+   curl -o public/apple-touch-icon.png "https://neon.com/favicon/apple-touch-icon.png"
+   ```
+   Only convert from brand SVG if customization is needed.
 
-3. **Update code references** if URLs are hardcoded:
+3. **For other format conversions** (SVG to PNG):
+   - Use ImageMagick: `magick -background none -density 300 input.svg -resize 1000x1000 output.png`
+
+4. **Update code references** if URLs are hardcoded:
    - Replace old URLs with official brand URLs
    - Update import paths if file names change
 
-4. **Report changes**:
+5. **Report changes**:
    ```
    ✅ Updated: icons/neon.svg → neon-logo-dark-color.svg
    ✅ Updated: public/logo.png → neon-logo-dark-color.png
@@ -141,7 +160,10 @@ Is space limited (< 100px or multi-brand context)?
 What format is needed?
 ├── Scalable web element → Keep as SVG
 ├── Fixed size image → Convert to PNG
-└── Browser favicon → Convert to ICO (16x16, 32x32)
+└── Browser favicon → Download from neon.com/favicon/
+    ├── Primary: favicon.svg (vector)
+    ├── Fallback: favicon.ico (100x100)
+    └── iOS: apple-touch-icon.png (180x180)
 ```
 
 ## Examples
@@ -159,7 +181,10 @@ What format is needed?
 **Example 3: Favicon**
 - Context: Browser favicon
 - Current: Generic `favicon.ico`
-- Recommendation: Generate from `neon-logomark-dark-color.svg` at 32x32 and 16x16
+- Recommendation: Download complete favicon set from neon.com/favicon/:
+  - `favicon.svg` (primary, vector)
+  - `favicon.ico` (fallback, 100x100)
+  - `apple-touch-icon.png` (iOS, 180x180)
 
 ## Guidelines
 
