@@ -7,6 +7,15 @@ description: Updates Neon logos across repositories to match official brand asse
 
 This skill updates Neon logos in repositories to match official brand assets from https://neon.com/brand.
 
+## Core Principle
+
+**Preserve format, replace logo.** For every logo file discovered:
+1. Analyze existing: dimensions, background, format, position
+2. Preserve: all design decisions (size, colors, layout)
+3. Replace: only the logo itself with official `#37C38F` brand version
+
+Never change dimensions, backgrounds, or layouts unless explicitly requested.
+
 ## Quick Start
 
 To update logos in the current repository:
@@ -34,11 +43,14 @@ For favicons, download directly from neon.com rather than converting from brand 
 
 | Asset | URL | Size |
 |-------|-----|------|
-| SVG Favicon (primary) | `https://neon.com/favicon/favicon.svg` | Vector |
+| SVG Favicon (primary) | `https://neon.com/favicon/favicon.svg` | 180x180 viewBox |
 | ICO Favicon (fallback) | `https://neon.com/favicon/favicon.ico` | 100x100 |
 | Apple Touch Icon | `https://neon.com/favicon/apple-touch-icon.png` | 180x180 |
 
-**Note:** Always prefer downloading these production-ready assets over converting from brand SVGs.
+**Important notes:**
+- The SVG favicon has ~10% built-in padding around the logo, which makes it appear properly sized in browser tabs
+- Browsers prefer SVG over ICO when both are available, so always configure your framework to list SVG first
+- Always download these production-ready assets rather than converting from brand SVGs
 
 ### Brand Guidelines
 
@@ -73,24 +85,28 @@ Present findings as a table with:
 
 ### Phase 2: Analysis
 
-For each discovered logo, determine:
+For each discovered logo, analyze the EXISTING file:
 
-1. **Logo Type Needed**
-   - Full logo: For headers, footers, about pages, documentation
-   - Logomark: For favicons, app icons, social thumbnails, small UI elements
+1. **Current Format**
+   - Dimensions (width × height)
+   - File format (SVG, PNG, ICO, JPG)
+   - Background color (transparent, dark, light)
+   - Logo variant (full logo vs logomark)
 
-2. **Background Context**
-   - Dark background: Dark mode pages, dark headers
-   - Light background: Light mode pages, white backgrounds
+2. **Logo Type in Use**
+   - Full logo: Text + symbol together
+   - Logomark: Symbol only
 
-3. **Color vs Monochrome**
-   - Color: Default, most use cases
-   - Monochrome: When color restrictions apply
+3. **Background Context**
+   - Transparent: Logo on variable backgrounds
+   - Dark background: Use dark-variant replacement
+   - Light background: Use light-variant replacement
 
-4. **Format Required**
-   - SVG: Scalable elements, web components
-   - PNG: Fixed-size images, OG images, social sharing
-   - ICO: Favicons (browser compatibility)
+4. **Replacement Strategy**
+   - SVG → Download matching official SVG, preserve viewBox/dimensions
+   - PNG → Generate PNG from official SVG at same dimensions
+   - ICO → Download official favicon.ico
+   - Composite images (OG, banners) → Regenerate with same background + official logo
 
 ### Phase 3: Recommendation
 
@@ -115,33 +131,84 @@ For each recommendation, ask the user:
 
 ### Phase 5: Update
 
-For approved changes:
+For approved changes, follow the **preserve format, replace logo** principle:
 
-1. **Download official asset** using curl or WebFetch:
+1. **For SVG files**, download official SVG and adjust dimensions:
    ```bash
-   curl -o [target-path] "https://neon.com/brand/[asset-name]"
+   # Download official asset
+   curl -o /tmp/official.svg "https://neon.com/brand/neon-logomark-dark-color.svg"
+
+   # Preserve original dimensions (e.g., width="26" height="26")
+   # Update the file with official paths but keep size attributes
    ```
 
-2. **For favicons**, prefer downloading from neon.com/favicon/:
+2. **For PNG files**, regenerate at same dimensions with HIGH DENSITY:
+   ```bash
+   # Get original dimensions
+   identify original-logo.png  # e.g., 1000x1000
+
+   # Download official SVG and convert to PNG at same size
+   curl -o /tmp/official.svg "https://neon.com/brand/neon-logomark-dark-color.svg"
+
+   # IMPORTANT: Use high density (1200+) for crisp edges!
+   # ImageMagick rasterizes SVG at the density first, then resizes.
+   # Low density = small intermediate raster = upscaling = blurry edges
+   # High density = large intermediate raster = downscaling = crisp edges
+   magick -background none -density 1200 /tmp/official.svg -resize 1000x1000 -depth 8 new-logo.png
+   ```
+
+3. **For composite images** (OG images, banners, social previews):
+   ```bash
+   # Analyze existing image
+   identify public/og-image.png  # Get dimensions and format
+
+   # Detect background color (or note from visual inspection)
+   # Regenerate with SAME dimensions and background, NEW logo
+   # Use high density for the SVG conversion to ensure crisp logo edges
+   magick -size [WIDTH]x[HEIGHT] xc:'[EXISTING_BG_COLOR]' \
+     \( -density 1200 /tmp/official.svg -resize [LOGO_SIZE] \) \
+     -gravity center -composite public/og-image.png
+   ```
+
+   **Key principle:** Preserve existing design decisions (background, dimensions, layout). Only replace the logo itself with the official brand version.
+
+4. **For favicons**, download complete set from neon.com/favicon/:
    ```bash
    curl -o public/favicon.svg "https://neon.com/favicon/favicon.svg"
    curl -o public/favicon.ico "https://neon.com/favicon/favicon.ico"
    curl -o public/apple-touch-icon.png "https://neon.com/favicon/apple-touch-icon.png"
    ```
-   Only convert from brand SVG if customization is needed.
 
-3. **For other format conversions** (SVG to PNG):
-   - Use ImageMagick: `magick -background none -density 300 input.svg -resize 1000x1000 output.png`
+5. **Update framework icon configuration** to prioritize SVG:
 
-4. **Update code references** if URLs are hardcoded:
-   - Replace old URLs with official brand URLs
-   - Update import paths if file names change
-
-5. **Report changes**:
+   **Next.js (app/layout.tsx):**
+   ```typescript
+   export const metadata: Metadata = {
+     icons: {
+       icon: [
+         { url: '/favicon.svg', type: 'image/svg+xml' },
+         { url: '/favicon.ico', sizes: '32x32' },
+       ],
+       apple: '/apple-touch-icon.png',
+     },
+   };
    ```
-   ✅ Updated: icons/neon.svg → neon-logo-dark-color.svg
-   ✅ Updated: public/logo.png → neon-logo-dark-color.png
-   ⏭️ Skipped: public/favicon.ico (user declined)
+
+   **HTML (manual):**
+   ```html
+   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+   <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico">
+   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+   ```
+
+6. **Update code references** if paths changed
+
+7. **Report changes** with before/after:
+   ```
+   ✅ Updated: icons/neon.svg (26x26 SVG → official logomark, preserved dimensions)
+   ✅ Updated: public/logo.png (1000x1000 PNG → regenerated with official logo)
+   ✅ Updated: public/og-image.png (1200x630 → preserved background, updated logo)
+   ✅ Updated: public/favicon.svg (new file from neon.com/favicon)
    ```
 
 ## Decision Tree
@@ -160,6 +227,9 @@ Is space limited (< 100px or multi-brand context)?
 What format is needed?
 ├── Scalable web element → Keep as SVG
 ├── Fixed size image → Convert to PNG
+├── OG/Social image → Regenerate with official logomark
+│   ├── Preserve: Existing dimensions, background color, layout
+│   └── Replace: Logo with official logomark (#37C38F)
 └── Browser favicon → Download from neon.com/favicon/
     ├── Primary: favicon.svg (vector)
     ├── Fallback: favicon.ico (100x100)
@@ -181,15 +251,28 @@ What format is needed?
 **Example 3: Favicon**
 - Context: Browser favicon
 - Current: Generic `favicon.ico`
-- Recommendation: Download complete favicon set from neon.com/favicon/:
-  - `favicon.svg` (primary, vector)
-  - `favicon.ico` (fallback, 100x100)
-  - `apple-touch-icon.png` (iOS, 180x180)
+- Recommendation:
+  1. Download complete favicon set from neon.com/favicon/:
+     - `favicon.svg` (primary, vector with built-in padding)
+     - `favicon.ico` (fallback, 100x100)
+     - `apple-touch-icon.png` (iOS, 180x180)
+  2. Update framework icon configuration to prioritize SVG over ICO
+
+**Example 4: OG Image / Composite Image**
+- Context: Social media preview image (`public/og-image.png`)
+- Current: 1200x630, dark background, centered logo with old gradient colors
+- Recommendation:
+  1. Preserve: 1200x630 dimensions, dark background, centered layout
+  2. Replace: Logo with official logomark using `#37C38F` brand color
+  3. Regenerate PNG with same composition, new logo
 
 ## Guidelines
 
+- **Preserve format, replace logo** - never change dimensions, backgrounds, or layouts without explicit request
+- **Always use high density (1200+) for SVG→PNG conversion** - this ensures crisp edges by rasterizing at high resolution before resizing
 - Always ask for confirmation before modifying files
 - Preserve original files as backups if requested
-- Report all changes with before/after comparison
-- For unknown contexts, ask user to clarify intended background color
-- When in doubt, recommend the full color logo on dark background (most common)
+- Report all changes with before/after comparison showing preserved dimensions
+- For unknown backgrounds, inspect the existing file first before asking user
+- All logo instances must use the official brand color `#37C38F` (no custom gradients)
+- OG images, banners, and composite images are NOT exceptions - they must be updated too
