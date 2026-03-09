@@ -1,24 +1,29 @@
 ---
 name: optimize-claude-md
-description: Optimizes CLAUDE.md/agents.md by restructuring verbose content into docs/*.md and compressing the main file using Vercel's agents.md index pattern. Use when a project's CLAUDE.md is bloated, unstructured, or could benefit from compressed passive context.
+description: Optimizes existing CLAUDE.md/agents.md by restructuring verbose content into docs/*.md and compressing the main file using Vercel's agents.md index pattern. This skill should be used when a project's CLAUDE.md is bloated, unstructured, exceeds 60 lines, or could benefit from compressed passive context. Triggers on "optimize", "clean up", "compress", "slim down", "restructure", "too long", or "bloated" mentions regarding CLAUDE.md or agents.md files. Do NOT trigger when the user wants to create, write, or generate a new CLAUDE.md from scratch, or when asking questions about what CLAUDE.md is or what it should contain.
 ---
 
 # Optimize CLAUDE.md
 
-Restructure for progressive disclosure, compress for passive context. Based on Vercel's research: passive context (always-loaded) achieves 100% pass rate vs 53-79% for on-demand retrieval. Pipe-delimited compressed index reduced 40KB → 8KB with 100% accuracy.
+Restructure for progressive disclosure, compress for passive context. Primary goal: reduce noise so Claude focuses on the rules that matter — correct file paths, testing requirements, naming collisions, architectural patterns. Vercel's research confirms passive context (always-loaded) achieves 100% pass rate vs 53-79% for on-demand retrieval.
 
-**Claude is the compression engine.** No external tools — analyze, categorize, and rewrite content using the techniques below.
+**Claude is the compression engine.** No external tools — analyze, categorize, and rewrite content using techniques in `references/compression-techniques.md`.
 
-## Core Principle
+## Core Principles
 
-- Main file stays under 60 lines with pipe-delimited index
+- Target under 60 lines in main file with pipe-delimited index. When core behavioral rules exceed this after compression, prioritize keeping rules over hitting the target — accuracy > brevity
 - Verbose/reference content moves to `docs/` or `.claude/rules/`
-- Never lose information — restructure, don't delete
-- Don't compress what's already concise — skip files under 30 lines
+- Never lose instructions or decisions — restructure, don't delete. (Facts Claude can derive from the codebase don't count — those can be omitted)
+- Skip files already under 30 lines — unless they reference 6+ docs/ files (consolidation may still help; see docs/ cap rule in Phase 3)
+- Files 60-100 lines that are already well-structured → lighter touch. Only extract clear reference material (schemas, code blocks, tree diagrams). Do not force compression of already-concise workflow guidance
 
-## Quick Start
+## What Good Looks Like
 
-Invoke on any project with a CLAUDE.md or agents.md. The skill reads, analyzes, proposes restructuring, gets confirmation, then executes.
+The best optimized CLAUDE.md files share these traits:
+- **Correct paths are explicit.** In monorepos, exact import paths and file locations prevent agents from guessing wrong. "Export from `packages/react/src/hooks/`" beats "export from the React package"
+- **Testing rules are prominent.** When testing requirements are visible in the main file, agents write tests consistently. When buried in docs/, they skip them
+- **Gotchas are inline.** Naming collisions, race conditions, and "never do X" warnings work only when visible on every prompt — not when agents have to discover them via docs/
+- **Commands are discoverable.** The pipe-delimited command index ensures agents find commands without reading workflow docs
 
 ## Workflow
 
@@ -26,95 +31,74 @@ Invoke on any project with a CLAUDE.md or agents.md. The skill reads, analyzes, 
 
 Find all instruction files in the project:
 
-**Search for:**
-- `CLAUDE.md` (project root)
+- `CLAUDE.md` (project root and subdirectories)
 - `.claude/CLAUDE.md`
 - `agents.md`, `AGENTS.md`
 - `.claude/rules/*.md`
-- `docs/*.md` (check if docs/ already exists)
+- `.cursorrules`, `.github/copilot-instructions.md`
+- `docs/*.md` (check if docs/ already exists with non-instruction content)
 
-**Report:**
-| File | Lines | Size |
-|------|-------|------|
-| path | count | KB   |
+Report as table: File | Lines | Size (KB). Note which directories already exist.
 
-Note which directories already exist (`docs/`, `.claude/rules/`).
+When `docs/` already contains non-instruction content, use `docs/claude/` for extracted files.
+
+**Edge cases:**
+- No CLAUDE.md exists → nothing to optimize, exit early
+- Monorepo with subdirectory CLAUDE.md files → optimize each independently, do not consolidate (subdirectory files scope to their directory)
+- Conflicting instructions across files → flag conflicts in the analysis table, ask user to resolve before proceeding
+- Non-markdown files (`.cursorrules`, `copilot-instructions.md`) → convert to `.claude/rules/*.md` format or leave alone per user preference
+- Previously optimized CLAUDE.md with existing `docs/` structure → do incremental extraction, preserve existing docs, only extract newly-added content
 
 ### Phase 2: Analysis
 
-Read every instruction file. Categorize each content block into one of:
+Read every instruction file. Categorize each content block using the categories in `references/compression-techniques.md`.
 
-| Category | Description |
-|----------|-------------|
-| Core rules | Behavioral directives, always needed (< 2 lines each) |
-| Tooling index | Commands, agents, skills, MCP tools |
-| Workflow guidance | Multi-step processes, conventions |
-| Reference material | Tables, config examples, API details |
-| Code examples | Inline code blocks > 5 lines |
-| Troubleshooting | Error handling, known issues, workarounds |
+Flag: blocks > 5 lines (extraction candidates), duplicate content (merge candidates), commands/agents/skills (index candidates).
 
-**Flag:**
-- Blocks > 5 lines → extraction candidates
-- Duplicate/overlapping content → merge candidates
-- Commands/agents/skills mentioned → index candidates
+Apply three filters to each block before deciding placement:
+1. **Frequency test** — Will this be relevant to 90%+ of prompts? If not → `docs/`, even if it's a behavioral rule. Exception: if the compressed rule is 1 line and high-stakes (see below), keep it. The 90% threshold is a guideline, not a hard cutoff — when in doubt about a 1-line rule, keep it; the context cost is ~10 tokens
+2. **Volatility test** — Does it reference things that change often (line numbers, variable names, specific counts, IDs)? If yes → remove or generalize. Stale instructions are worse than no instructions
+3. **Derivability test** — Can Claude figure this out with a single tool call (`ls`, reading 1 file)? If yes AND the instruction is 3+ lines → omit. If it's a 1-2 line fact, keep it — a 10-token instruction in passive context is almost always cheaper than a tool call (~200-500 tokens + latency). The question isn't "can Claude derive it?" but "is deriving it cheaper than keeping it?" Examples of what to omit: project directory tree (derivable via `ls`, 10+ lines). Examples of what to keep: "tests use Vitest, not Jest" (1 line, saves a tool call every session)
 
-Present analysis table to user:
+Distinguish between **always-needed behavioral rules** (keep in main file) and **task-specific procedures** (extract to docs/). A procedure triggered only by specific tasks ("User wants to promote a plugin") belongs in docs/, not the main file — even if it tells Claude what to do.
 
-| Block | Category | Lines | Action |
-|-------|----------|-------|--------|
-| "Git rules" | Core rules | 3 | Keep |
-| "API reference table" | Reference | 45 | Extract |
-| "Build workflow" | Workflow | 22 | Extract |
+**Exception — high-stakes rules:** Gotchas, naming collisions, critical warnings, and "never do X" rules stay in the main file even if they fail the frequency test. These are low-frequency but high-consequence: missing them causes bugs that are hard to diagnose. Examples: "never name a plugin `analytics` — collides with existing", "always cancel stale fetches in useEffect cleanup". Cost of keeping a 1-line warning is negligible; cost of missing it is a broken implementation.
+
+Strip non-instructional metadata (last-updated dates, repository URLs, maintainer links) unless they contain actionable information Claude needs.
+
+Present analysis table: Block | Category | Lines | Action (Keep/Extract/Merge).
 
 ### Phase 3: Restructuring Proposal
 
-Present restructuring plan as a table:
+Present restructuring plan as table: Content Block | Current Location | Proposed Location | Reason.
 
-| Content Block | Current Location | Proposed Location | Reason |
-|---------------|------------------|-------------------|--------|
-| Git rules | CLAUDE.md:12-14 | CLAUDE.md (keep) | Core rule, 3 lines |
-| API reference | CLAUDE.md:30-75 | docs/api-reference.md | Reference, 45 lines |
-| Build workflow | CLAUDE.md:80-102 | .claude/rules/build.md | Auto-loaded workflow |
-
-**For tooling indexes, propose pipe-delimited format:**
-
+For tooling indexes, propose pipe-delimited format:
 ```
 ## Commands
 name|purpose|when-to-use
 /deploy|deploy to prod|after PR merge
-/test|run test suite|before commits
 ```
 
-**Show before/after line count estimate.**
+Apply the decision tree from `references/compression-techniques.md` for placement. Show before/after line count estimate.
 
-**Decision criteria:**
+Include a **draft preview** of the compressed CLAUDE.md alongside the table — evaluating a table of moves is hard, seeing the actual output is easy.
 
-```
-Is content a behavioral rule (< 2 lines)?
-├── Yes → Keep in CLAUDE.md
-└── No → Is it needed every prompt?
-    ├── Yes → Compress + keep in CLAUDE.md or move to rules/ (auto-loaded)
-    └── No → Move to docs/
-        └── Add @docs/filename.md reference
-```
+**IMPORTANT:** Reference extracted docs as `docs/filename.md` (no `@` prefix). The `@` prefix loads files into context on every reference, defeating the purpose of extraction.
 
-- Always-needed behavioral rules (< 2 lines each) → stays in main file
-- Workflow/convention rules → `.claude/rules/*.md` (auto-loaded, same priority as CLAUDE.md)
-- Deep reference material → `docs/*.md` (referenced via `@docs/file.md` imports)
-- Code examples > 5 lines → `docs/examples/`
+**IMPORTANT:** When extracting a workflow to docs/, any commands mentioned in that workflow must still appear in the main commands pipe-delimited index. The commands table is a discoverability index — commands should be findable there even if their surrounding workflow context lives in docs/. Example: extracting a "Releasing" workflow to `docs/claude/releasing.md` still means `pnpm release` appears in the commands table.
+
+**IMPORTANT:** Cap extracted docs/ at 5 files maximum. If you have more, consolidate related content into fewer files (e.g., `docs/api-and-database.md` instead of separate `docs/api-reference.md` + `docs/database.md`). Each docs/ file is a discovery cost — the agent must decide whether to read it and spend tokens doing so.
 
 ### Phase 4: Confirmation
 
-**Present full preview of proposed new CLAUDE.md to user.**
-
-List all files to create:
+Present full preview of proposed new CLAUDE.md. List all files to create:
 ```
 CREATE: docs/api-reference.md (45 lines extracted)
 CREATE: .claude/rules/build.md (22 lines extracted)
-REWRITE: CLAUDE.md (120 lines → 48 lines)
+REWRITE: CLAUDE.md (120 lines -> 48 lines)
 ```
 
-Ask user to approve, modify, or reject each proposed change. Do NOT proceed without explicit approval.
+Get explicit approval before writing any files. Do NOT proceed without it.
 
 ### Phase 5: Execution
 
@@ -122,49 +106,19 @@ Apply approved changes:
 
 1. Create `docs/` and/or `.claude/rules/` directories as needed
 2. Write extracted content to new files (preserve full detail)
-3. Rewrite CLAUDE.md using compression techniques (below)
+3. Rewrite CLAUDE.md using techniques from `references/compression-techniques.md`
 4. Add `docs/filename.md` import references for extracted content
-5. Report before/after metrics:
+5. Report before/after metrics: line counts, file counts, "0 lines lost"
 
-```
-BEFORE: CLAUDE.md = 120 lines
-AFTER:  CLAUDE.md = 48 lines
-        docs/api-reference.md = 45 lines
-        .claude/rules/build.md = 22 lines
-Total information: preserved (0 lines lost)
-```
+For a complete before/after example, read `references/example-before-after.md`.
 
-## Compression Techniques
+### Phase 6: Validation
 
-Apply these when rewriting the main CLAUDE.md:
+Verify the optimization preserved all meaning:
 
-| Technique | Example Before | Example After |
-|-----------|---------------|---------------|
-| Pipe-delimited tables | Multi-line tool descriptions | `name\|purpose\|when` |
-| Kill restating prose | "This means you should..." | (delete) |
-| Merge overlapping rules | 3 rules about same topic | 1 combined rule |
-| Replace examples with refs | 15-line code block | `@docs/examples/auth.md` |
-| Strip formatting overhead | HRs, excessive headers | Minimal headers only |
-| Abbreviate language | "You should always make sure to" | "Always" |
-| One rule per line | Multi-line bullets with sub-bullets | Single line, no sub-bullets |
-
-**Critical: preserve user's voice/intent in rules.** Compress form, not meaning.
-
-## Anti-Patterns
-
-- **Don't blindly summarize.** Summarizing 18K→122 tokens drops accuracy 66.7%→57.1%. Restructure instead.
-- **Don't delete content.** Everything extracted must remain reachable via docs/ or rules/.
-- **Don't compress what's already concise.** Skip files under 30 lines.
-- **Don't rewrite meaning.** Compress phrasing, not intent.
-- **Don't create orphan docs.** Every extracted file must be referenced from main CLAUDE.md.
-- **NEVER use @docs/filename.md imports.** Use docs/filename.md instead, using '@' would load the file into context every time the file is referenced.
-
-## Guidelines
-
-- Target: main CLAUDE.md under 60 lines
-- Never lose information — everything extracted must be reachable
-- Prefer `rules/` over `docs/` for content that should auto-load every session
-- Prefer `docs/` for reference material only needed occasionally
-- Preserve user's voice/intent in rules (don't rewrite meaning)
-- Always show before/after metrics
-- Always get explicit confirmation before writing any files
+1. Re-read compressed CLAUDE.md and every extracted doc
+2. Confirm every original instruction is reachable (in main file, rules/, or docs/)
+3. Spot-check compressed rules for meaning drift — e.g., "prefer interfaces over types for object shapes" compressed to "interfaces over types" loses the "for object shapes" qualifier
+4. Run `scripts/validate-references.sh <path-to-CLAUDE.md>` to verify all `docs/` references point to existing files
+5. Report: total instructions before vs after, any meaning changes flagged
+6. Note to user: early data suggests less noise may produce more predictable behavior across repeated runs — worth observing but not yet proven at scale
